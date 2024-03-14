@@ -162,10 +162,10 @@ class Grafo:
         plt.show()
         #Dirac
     def Dirac(self):
-        if len(self.V)< 3 or self.maiorGrau<((len(self.V)/2)/2):
-            return False
-        else:
+        if len(self.V)>= 3 and self.menorGrau>=((len(self.V)/2)):
             return True
+        else:
+            return False
 
     def Ore(self):
         for i in range(0,len(self.V)):
