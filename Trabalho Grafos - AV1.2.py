@@ -150,16 +150,16 @@ class Grafo:
         self.listaIndexada()
 
     #histograma
-    def plot_histograma(self):
-        dadosX = [vertice.dado for vertice in self.V]
-        dadosY = [vertice.grau for vertice in self.V]
-        plt.bar(dadosX, dadosY,align="center")
-        plt.xlabel('Vértices')
-        plt.ylabel('Grau dos Vértices')
-        plt.title('Histograma de Grau dos Vértices')
-        plt.yticks(range(0, self.maiorGrau + 1))
-        plt.grid(True)
-        plt.show()
+    # def plot_histograma(self):
+    #     dadosX = [vertice.dado for vertice in self.V]
+    #     dadosY = [vertice.grau for vertice in self.V]
+    #     plt.bar(dadosX, dadosY,align="center")
+    #     plt.xlabel('Vértices')
+    #     plt.ylabel('Grau dos Vértices')
+    #     plt.title('Histograma de Grau dos Vértices')
+    #     plt.yticks(range(0, self.maiorGrau + 1))
+    #     plt.grid(True)
+    #     plt.show()
         #Dirac
     def Dirac(self):
         if len(self.V)>= 3 and self.menorGrau>=((len(self.V)/2)):
@@ -200,10 +200,28 @@ class Fecho(Grafo):
                         self.fechoHamiltoniano()
 #Main  
 #Grafo Qualquer
-pontos = [1,2,3,4,5,6]
-ligacoes = [[1,2],[1,3],[2,3],[1,4],[3,5],[4,5],[4,6],[5,6]]
-
-grafo = Grafo(pontos,ligacoes)
-print(grafo.Dirac())
-print(grafo.Ore())
-print(grafo.BondyEChvatal())
+pontos = [1,2,3,4,5,6,7]
+ligacoes1 = [[1,2],[1,3],[1,6],[1,7],[2,3],[2,4],[2,6],[3,4],[3,5],[4,5],[4,7],[5,6],[5,7],[6,7]]
+ligacoes2 = [[1,2],[1,3],[1,6],[1,7],[2,3],[2,4],[2,6],[3,4],[4,5],[4,7],[5,6],[5,7],[6,7]]
+ligacoes3 = [[1,2],[1,3],[1,6],[1,7],[2,3],[3,4],[4,5],[5,6],[5,7],[6,7]]
+ligacoes4 = [[1,2],[1,3],[1,6],[1,7],[2,3],[3,4],[4,5],[5,6],[6,7]]
+grafo1 = Grafo(pontos,ligacoes1)
+grafo2 = Grafo(pontos,ligacoes2)
+grafo3 = Grafo(pontos,ligacoes3)
+grafo4 = Grafo(pontos,ligacoes4)
+print("Grafo 1:")
+print(grafo1.Dirac())
+print(grafo1.Ore())
+print(grafo1.BondyEChvatal())
+print("Grafo 2:")
+print(grafo2.Dirac())
+print(grafo2.Ore())
+print(grafo2.BondyEChvatal())
+print("Grafo 3:")
+print(grafo3.Dirac())
+print(grafo3.Ore())
+print(grafo3.BondyEChvatal())
+print("Grafo 4:")
+print(grafo4.Dirac())
+print(grafo4.Ore())
+print(grafo4.BondyEChvatal())
